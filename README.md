@@ -53,11 +53,16 @@ and then assign that to the NotFoundHandler, and this is a little different from
 what we have done so far.
 To help with this, I have provided an example of how to convert the home
 function that we wrote earlier in this chapter into the http.Handler type.
+
+
+```go
 var h http.Handler = http.HandlerFunc(home)
 r := mux.NewRouter()
 // This will assign the home page to the
 // NotFoundHandler
 r.NotFoundHandler = h
+```
+
 You will want to do something similar, but using your own unique 404 page
 function.
 
