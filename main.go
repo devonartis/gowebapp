@@ -3,8 +3,10 @@ package main
 import (
 	"fmt"
 	"net/http"
+	
+	"github.com/go-chi/chi/v5"
+	_ "github.com/go-chi/chi/v5/middleware"
 
-	"github.com/gorilla/mux"
 )
 
 var h http.Handler
@@ -30,11 +32,11 @@ func custom404(w http.ResponseWriter, http *http.Request) {
 		"</p><p><b>Please email support</b></p>")
 }
 func main() {
-	
+	/**
 	h = http.HandlerFunc(custom404)
-	r := mux.NewRouter()
 	r.NotFoundHandler = h
-	
+	**/
+	r := chi.NewRouter()
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
 	r.HandleFunc("/faq", faq)

@@ -74,3 +74,5 @@ replicate the program we have written so far using this router instead of gorill
 mux.
 This is a great way to both (a) ensure you understood what we were doing, and
 (b) practice reading docs and using other libraries you are unfamiliar with.****
+
+CHI - https://github.com/go-chi/chi 
