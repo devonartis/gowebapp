@@ -7,6 +7,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
+var h http.Handler
+
 func faq(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "<h1>FAQ Placeholder!</h1>")
@@ -22,8 +24,17 @@ func contact(w http.ResponseWriter, http *http.Request) {
 		"to <a href=\"mailto:support@devonartis.com\">"+"devon@devonartis.com</a>.")
 }
 
+func custom404(w http.ResponseWriter, http *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+	fmt.Fprint(w, "<h1>404 Error</h1>"+"<p>The page your are looking for does not exist."+
+		"</p><p><b>Please email support</b></p>")
+}
 func main() {
+	
+	h = http.HandlerFunc(custom404)
 	r := mux.NewRouter()
+	r.NotFoundHandler = h
+	
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
 	r.HandleFunc("/faq", faq)
