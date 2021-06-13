@@ -6,8 +6,13 @@ import (
 )
 
 func handlerFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Welcome to my Simple Golang Site</h1>")
-
+	w.Header().Set("Content-Type", "text/html")
+	if r.URL.Path == "/" {
+		fmt.Fprint(w, "<h1>Welcome to My Simple Golang Site!</h1>")
+	} else if r.URL.Path == "/contact" {
+		fmt.Fprint(w, "To get in touch please send an email "+
+			"to <a href=\"mailto:support@devonartis.com\">"+"devon@devonartis.com</a>.")
+	}
 }
 
 func main() {
