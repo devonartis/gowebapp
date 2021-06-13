@@ -24,6 +24,13 @@ fresh - github.com/pilu/fresh
 
 > 
 
+## Routers 
+In this section we focus on using routers as ifelse statements is not the route you want to go for routing.
+
+There are multiple routers but in this section we will be using github.com/gorilla/mux.Router which is part of the Gorilla Toolkit
 
 
+You will need to run the command 
+
+`go get -u github.com/gorilla/mux`  
 
