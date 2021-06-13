@@ -19,7 +19,7 @@ func home(w http.ResponseWriter, http *http.Request) {
 func contact(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "To get in touch please send an email "+
-		"to <a href=\"mailto:support@devonartis.com\">"+"devon@devonartis.com</a>.")
+		"to <a href=\"mailto:support@devonartis.com\">"+"support@devonartis.com</a>.")
 }
 
 func main() {
