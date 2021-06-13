@@ -7,6 +7,10 @@ import (
 	"github.com/gorilla/mux"
 )
 
+func faq(w http.ResponseWriter, http *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+	fmt.Fprint(w, "<h1>FAQ Placeholder!</h1>")
+}
 func home(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, "<h1>Welcome to My Simple Golang Site!</h1>")
@@ -22,5 +26,6 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
+	r.HandleFunc("/faq", faq)
 	http.ListenAndServe(":3000", r)
 }
