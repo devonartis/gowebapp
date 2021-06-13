@@ -18,8 +18,12 @@ w.Header().Set("Content-Type", "text/html")
 			"to <a href=\"mailto:support@devonartis.com\">"+"devon@devonartis.com</a>.")
 	}
 ```
+> [!TIP]
+If you are interested in learning about dynamic reloading, check out the Go library
+fresh - github.com/pilu/fresh
 
-Add tag
+> 
+
 
 
 
