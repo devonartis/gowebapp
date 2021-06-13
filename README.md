@@ -74,3 +74,7 @@ replicate the program we have written so far using this router instead of gorill
 mux.
 This is a great way to both (a) ensure you understood what we were doing, and
 (b) practice reading docs and using other libraries you are unfamiliar with.****
+
+Templates - In this branch we will be examining the html/template package from the standard
+library and exploring how it works.
+
