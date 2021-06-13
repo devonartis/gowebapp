@@ -34,3 +34,38 @@ You will need to run the command
 
 `go get -u github.com/gorilla/mux`  
 
+## Excercise 
+
+### 3.4.1 Ex1 - Add an FAQ page
+This one is pretty straight forward. Try to create an FAQ page to your application
+under the path /faq.
+You can fill the page with whatever HTML content you prefer, but you should
+make it different from the other pages you are certain your code is working as
+you intended.
+
+### 3.4.2 Ex2 - Custom 404 page
+I mentioned earlier that gorilla/mux has a 404 page by default for paths we
+don’t define with our router. You can actually customize this page by setting
+the NotFoundHandler attribute on the gorilla/mux.Router.
+If you are new to Go this exercise is likely going to prove to be challenging
+because you will need to create an implementation of the http.Handler interface
+and then assign that to the NotFoundHandler, and this is a little different from
+what we have done so far.
+To help with this, I have provided an example of how to convert the home
+function that we wrote earlier in this chapter into the http.Handler type.
+var h http.Handler = http.HandlerFunc(home)
+r := mux.NewRouter()
+// This will assign the home page to the
+// NotFoundHandler
+r.NotFoundHandler = h
+You will want to do something similar, but using your own unique 404 page
+function.
+
+### 3.4.3 Ex3 - [HARD] Try out another router
+
+This exercises is labeled hard because it is a little open ended.
+Check out another router, like github.com/julienschmidt/httprouter, and try to
+replicate the program we have written so far using this router instead of gorilla/
+mux.
+This is a great way to both (a) ensure you understood what we were doing, and
+(b) practice reading docs and using other libraries you are unfamiliar with.****
