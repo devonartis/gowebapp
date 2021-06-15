@@ -85,4 +85,6 @@ to just create the view branch.
 
 ## Delete the MVC branch and name this title to View
 
+In the view branch views was added instead of hard coding the web response code.
+
 
