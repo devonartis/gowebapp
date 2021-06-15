@@ -87,4 +87,8 @@ to just create the view branch.
 
 In the view branch views was added instead of hard coding the web response code.
 
+# Reusable Bootstrap 
+
+In the branch "bootstrap" a reusable bootstrap will be used to enhance the views
+
 
