@@ -1,8 +1,9 @@
 package main
 
 import (
+	"fmt"
+	"html/template"
 	"net/http"
-	"text/template"
 
 	"github.com/gorilla/mux"
 )
@@ -16,7 +17,7 @@ func faq(w http.ResponseWriter, http *http.Request) {
 	if err := faqTemplate.Execute(w, nil); err != nil {
 		panic(err)
 	}
-	
+
 }
 func home(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
@@ -30,7 +31,7 @@ func contact(w http.ResponseWriter, http *http.Request) {
 	if err := contactTemplate.Execute(w, nil); err != nil {
 		panic(err)
 	}
-	
+
 }
 
 func custom404(w http.ResponseWriter, http *http.Request) {
@@ -40,7 +41,6 @@ func custom404(w http.ResponseWriter, http *http.Request) {
 }
 func main() {
 
-	
 	h = http.HandlerFunc(custom404)
 	var err error
 
@@ -59,10 +59,9 @@ func main() {
 		panic(err)
 	}
 
-
 	r := mux.NewRouter()
 	r.NotFoundHandler = h
-	
+
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
 	r.HandleFunc("/faq", faq)
