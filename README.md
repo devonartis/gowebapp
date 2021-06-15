@@ -74,3 +74,16 @@ replicate the program we have written so far using this router instead of gorill
 mux.
 This is a great way to both (a) ensure you understood what we were doing, and
 (b) practice reading docs and using other libraries you are unfamiliar with.****
+
+# VIEW
+
+The work and labs done on MVC could be pulled from the view branch, intially I created a MVC
+branch to be used for code but the chapter talked more about what is a MVC.
+
+I have worked with Model View Controller years ago so I am quite familiar with MVC and MVC frameworks. I decided
+to just create the view branch. 
+
+## Delete the MVC branch and name this title to View
+
+In the view branch views was added instead of hard coding the web response code.
+
