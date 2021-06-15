@@ -1,27 +1,36 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
+	"text/template"
 
 	"github.com/gorilla/mux"
 )
 
 var h http.Handler
 
+var homeTemplate, contactTemplate, faqTemplate *template.Template
+
 func faq(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, "<h1>FAQ Placeholder!</h1>")
+	if err := faqTemplate.Execute(w, nil); err != nil {
+		panic(err)
+	}
+	
 }
 func home(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, "<h1>Welcome to My Simple Golang Site!</h1>")
+	if err := homeTemplate.Execute(w, nil); err != nil {
+		panic(err)
+	}
 }
 
 func contact(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, "To get in touch please send an email "+
-		"to <a href=\"mailto:support@devonartis.com\">"+"devon@devonartis.com</a>.")
+	if err := contactTemplate.Execute(w, nil); err != nil {
+		panic(err)
+	}
+	
 }
 
 func custom404(w http.ResponseWriter, http *http.Request) {
@@ -30,8 +39,27 @@ func custom404(w http.ResponseWriter, http *http.Request) {
 		"</p><p><b>Please email support</b></p>")
 }
 func main() {
+
 	
 	h = http.HandlerFunc(custom404)
+	var err error
+
+	homeTemplate, err = template.ParseFiles("views/home.html")
+	if err != nil {
+		panic(err)
+	}
+
+	contactTemplate, err = template.ParseFiles("views/contact.html")
+	if err != nil {
+		panic(err)
+	}
+
+	faqTemplate, err = template.ParseFiles("views/faq.html")
+	if err != nil {
+		panic(err)
+	}
+
+
 	r := mux.NewRouter()
 	r.NotFoundHandler = h
 	
