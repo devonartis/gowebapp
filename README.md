@@ -1,8 +1,8 @@
-# Basic Web 
+# Web Development With Golang 
 
 Create Basic Web Page 
 
-# Adding New Pages 
+## Adding New Pages 
 
 A web application would be boring with only one page, in this section I will work on adding new pages. 
 
@@ -75,7 +75,7 @@ mux.
 This is a great way to both (a) ensure you understood what we were doing, and
 (b) practice reading docs and using other libraries you are unfamiliar with.****
 
-# MVC-VIEW
+# VIEW
 
 The work and labs done on MVC could be pulled from the view branch, intially I created a MVC
 branch to be used for code but the chapter talked more about what is a MVC.
@@ -86,5 +86,4 @@ to just create the view branch.
 ## Delete the MVC branch and name this title to View
 
 In the view branch views was added instead of hard coding the web response code.
-
 
