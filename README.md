@@ -89,6 +89,12 @@ In the view branch views was added instead of hard coding the web response code.
 
 # Reusable Bootstrap 
 
-In the branch "bootstrap" a reusable bootstrap will be used to enhance the views
+In the branch "bootstrap" a reusable bootstrap will be used to enhance the views 
+
+# Branch bs_viewtype 
+
+In this branch we create a the view type later on we will take the named templtes and apply it to create a layout for all pages, but first we are going to address the problem the problem we have with adding the footer template to every file.
+
+This is fine for one or two files but imagine having 20 pages and adding the footer template in every page the view type is going to fix that problem.
 
 
