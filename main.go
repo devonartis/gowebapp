@@ -44,17 +44,24 @@ func main() {
 	h = http.HandlerFunc(custom404)
 	var err error
 
-	homeTemplate, err = template.ParseFiles("views/home.html")
+	homeTemplate, err = template.ParseFiles(
+		"views/home.html",
+		"views/layout/footer.html")
 	if err != nil {
 		panic(err)
 	}
 
-	contactTemplate, err = template.ParseFiles("views/contact.html")
+	contactTemplate, err = template.ParseFiles(
+		"views/contact.html",
+		"views/layout/footer.html")
+
 	if err != nil {
 		panic(err)
 	}
 
-	faqTemplate, err = template.ParseFiles("views/faq.html")
+	faqTemplate, err = template.ParseFiles(
+		"views/faq.html",
+		"views/layout/footer.html")
 	if err != nil {
 		panic(err)
 	}
