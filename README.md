@@ -106,9 +106,13 @@ Update home and contact function in main.go to use the new layout
 
 
 
-**Listing 6.21: Adding Layout to NewView().**
+**Listing 6.21: Adding Layout to NewView().** 
 
-6.4 Navigation Bar
+6.4 Navigation Bar - Completed
+
+6.5 Cleaning up code ... pending 
+
+
 
 
 
