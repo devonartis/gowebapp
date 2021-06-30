@@ -76,9 +76,9 @@ func main() {
 		}
 	*/
 
-	homeView = views.NewView("views/home.html")
-	contactView = views.NewView("views/contact.html")
-	faqView = views.NewView("views/faq.html")
+	homeView = views.NewView("bootstrap","views/home.html")
+	contactView = views.NewView("bootstrap","views/contact.html")
+	faqView = views.NewView("bootstrap","views/faq.html")
 
 	r := mux.NewRouter()
 	r.NotFoundHandler = h
