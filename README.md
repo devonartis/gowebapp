@@ -98,3 +98,6 @@ In this branch we create a the view type later on we will take the named templte
 This is fine for one or two files but imagine having 20 pages and adding the footer template in every page the view type is going to fix that problem.
 
 
+6.3.3 Creating the Bootstrap layout
+
+

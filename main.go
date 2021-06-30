@@ -1,7 +1,8 @@
 package main
 
 import (
-	"html/template"
+	"fmt"
+	_ "html/template"
 	"net/http"
 
 	"github.com/devonartis/gowebapp/views"
