@@ -17,7 +17,7 @@ var homeView, contactView, faqView *views.View
 
 func faq(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := faqView.Template.Execute(w, nil)
+	err := faqView.Template.ExecuteTemplate(w, faqView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -25,7 +25,7 @@ func faq(w http.ResponseWriter, http *http.Request) {
 }
 func home(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := homeView.Template.Execute(w, nil)
+	err := homeView.Template.ExecuteTemplate(w, homeView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -33,7 +33,7 @@ func home(w http.ResponseWriter, http *http.Request) {
 
 func contact(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := contactView.Template.Execute(w, nil)
+	err := contactView.Template.ExecuteTemplate(w, contactView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}

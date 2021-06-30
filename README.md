@@ -97,6 +97,17 @@ In this branch we create a the view type later on we will take the named templte
 
 This is fine for one or two files but imagine having 20 pages and adding the footer template in every page the view type is going to fix that problem.
 
+**Listing 6.19: Adding Layout to NewView()
+**
+
+**Listing 6.20: Using the Layout in handlers.
+**
+Update home and contact function in main.go to use the new layout
+
+
+
+
+
 
 
 
