@@ -18,4 +18,5 @@ func NewView(files ...string) *View {
 
 type View struct {
 	Template *template.Template
+	Layout string
 }
