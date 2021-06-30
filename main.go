@@ -1,34 +1,39 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 
+	"github.com/devonartis/gowebapp/views"
 	"github.com/gorilla/mux"
 )
 
 var h http.Handler
 
-var homeTemplate, contactTemplate, faqTemplate *template.Template
+//var homeTemplate, contactTemplate, faqTemplate *template.Template
+
+var homeView, contactView, faqView *views.View
 
 func faq(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	if err := faqTemplate.Execute(w, nil); err != nil {
+	err := faqView.Template.Execute(w, nil)
+	if err != nil {
 		panic(err)
 	}
 
 }
 func home(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	if err := homeTemplate.Execute(w, nil); err != nil {
+	err := homeView.Template.Execute(w, nil)
+	if err != nil {
 		panic(err)
 	}
 }
 
 func contact(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	if err := contactTemplate.Execute(w, nil); err != nil {
+	err := contactView.Template.Execute(w, nil)
+	if err != nil {
 		panic(err)
 	}
 
@@ -42,29 +47,37 @@ func custom404(w http.ResponseWriter, http *http.Request) {
 func main() {
 
 	h = http.HandlerFunc(custom404)
-	var err error
+	/*
+		var err error
 
-	homeTemplate, err = template.ParseFiles(
-		"views/home.html",
-		"views/layout/footer.html")
-	if err != nil {
-		panic(err)
-	}
 
-	contactTemplate, err = template.ParseFiles(
-		"views/contact.html",
-		"views/layout/footer.html")
+		homeTemplate, err = template.ParseFiles(
+			"views/home.html",
+			"views/layout/footer.html")
+		if err != nil {
+			panic(err)
+		}
 
-	if err != nil {
-		panic(err)
-	}
 
-	faqTemplate, err = template.ParseFiles(
-		"views/faq.html",
-		"views/layout/footer.html")
-	if err != nil {
-		panic(err)
-	}
+		contactTemplate, err = template.ParseFiles(
+			"views/contact.html",
+			"views/layout/footer.html")
+
+		if err != nil {
+			panic(err)
+		}
+
+		faqTemplate, err = template.ParseFiles(
+			"views/faq.html",
+			"views/layout/footer.html")
+		if err != nil {
+			panic(err)
+		}
+	*/
+
+	homeView = views.NewView("views/home.html")
+	contactView = views.NewView("views/contact.html")
+	faqView = views.NewView("views/faq.html")
 
 	r := mux.NewRouter()
 	r.NotFoundHandler = h
