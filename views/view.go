@@ -6,6 +6,7 @@ import "html/template"
 func NewView(layout string, files ...string) *View {
 	files = append(files, 
 		"views/layouts/footer.html",
+	"views/layouts/navbar.html",
 	"views/layouts/bootstrap.html")
 	t, err := template.ParseFiles(files...)
 	if err != nil {
