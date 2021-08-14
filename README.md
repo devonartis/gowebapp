@@ -114,6 +114,7 @@ Update home and contact function in main.go to use the new layout
 
 6.5.4 Moving our footer to the layout
 
+7.1.1 ADD A SIGN UP PAGE WITH A FORM
 
 
 
