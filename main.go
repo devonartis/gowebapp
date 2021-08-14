@@ -86,5 +86,5 @@ func main() {
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
 	r.HandleFunc("/faq", faq)
-	http.ListenAndServe(":3000", r)
+	http.ListenAndServe(":3001", r)
 }
