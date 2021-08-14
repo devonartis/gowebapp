@@ -110,7 +110,10 @@ Update home and contact function in main.go to use the new layout
 
 6.4 Navigation Bar - Completed
 
-6.5 Cleaning up code ... pending 
+6.5 Cleaning up code ... Completed  
+
+6.5.4 Moving our footer to the layout
+
 
 
 
