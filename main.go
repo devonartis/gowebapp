@@ -15,29 +15,27 @@ var h http.Handler
 
 var homeView, contactView, faqView *views.View
 
+// A helper function that will panic if an error occurs.
+func must(err error) {
+	if err !=nil {
+		panic(err)
+	}
+}
+
 func faq(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := faqView.Template.ExecuteTemplate(w, faqView.Layout, nil)
-	if err != nil {
-		panic(err)
-	}
-
+	must(faqView.Render(w, nil))
 }
+
 func home(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := homeView.Template.ExecuteTemplate(w, homeView.Layout, nil)
-	if err != nil {
-		panic(err)
-	}
+	must(homeView.Render(w, nil))
+	
 }
 
 func contact(w http.ResponseWriter, http *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := contactView.Template.ExecuteTemplate(w, contactView.Layout, nil)
-	if err != nil {
-		panic(err)
-	}
-
+	must(contactView.Render(w,nil))
 }
 
 func custom404(w http.ResponseWriter, http *http.Request) {
@@ -48,34 +46,7 @@ func custom404(w http.ResponseWriter, http *http.Request) {
 func main() {
 
 	h = http.HandlerFunc(custom404)
-	/*
-		var err error
-
-
-		homeTemplate, err = template.ParseFiles(
-			"views/home.html",
-			"views/layout/footer.html")
-		if err != nil {
-			panic(err)
-		}
-
-
-		contactTemplate, err = template.ParseFiles(
-			"views/contact.html",
-			"views/layout/footer.html")
-
-		if err != nil {
-			panic(err)
-		}
-
-		faqTemplate, err = template.ParseFiles(
-			"views/faq.html",
-			"views/layout/footer.html")
-		if err != nil {
-			panic(err)
-		}
-	*/
-
+	
 	homeView = views.NewView("bootstrap","views/home.html")
 	contactView = views.NewView("bootstrap","views/contact.html")
 	faqView = views.NewView("bootstrap","views/faq.html")

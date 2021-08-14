@@ -2,6 +2,7 @@ package views
 
 import (
 	"html/template"
+	"net/http"
 	"path/filepath"
 )
 
@@ -20,12 +21,6 @@ func layoutFiles() []string {
 
 func NewView(layout string, files ...string) *View {
 
-	/*files = append(files,
-	"views/layouts/footer.html",
-	"views/layouts/navbar.html",
-	"views/layouts/bootstrap.html")
-
-	*/
 	files = append(files, layoutFiles()...)
 	t, err := template.ParseFiles(files...)
 	if err != nil {
@@ -37,6 +32,12 @@ func NewView(layout string, files ...string) *View {
 		Layout:   layout,
 	}
 }
+
+func (v *View) Render(w http.ResponseWriter,
+	data interface{}) error {
+	return v.Template.ExecuteTemplate(w, v.Layout, data)
+}
+
 
 type View struct {
 	Template *template.Template
